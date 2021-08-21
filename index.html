@@ -21,17 +21,22 @@
             <!-- action required a method in the main vue app. this will run befor the next event. good for run validations or any middleware this method required to return a boolen value to execute the next event. : optional -->
             <!-- bnext is the next button text. : optional : defautl "Next" -->
 
-            <panel action="say" bnext="Process" step="1" title="Panel 1">
+            <Panel action="say" bnext="Process" step="1" title="Panel 1">
                 {{msg}}
-            </panel>
+            </Panel>
 
-            <panel step="2" title="Panel 2">
+            <Panel step="2" title="Panel 2">
                 Panel 2
-            </panel>
-            
-            <panel bnext="Back To Home" step="3" title="Panel 3">
+            </Panel>
+
+            <Panel step="3" title="Panel 3">
                 Panel 3
-            </panel>
+            </Panel>
+
+            <Panel bnext="Back To Home" step="4" title="Panel 4">
+                Panel 4
+            </Panel>
+            
         </div>
         <script src="./js/vue.js">
         </script>

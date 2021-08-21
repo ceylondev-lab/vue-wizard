@@ -53,7 +53,7 @@
     var app = new Vue({
         el: "#app",
         data: {
-            msg: "hello from parent",
+            msg: "Hello Vue Wizard",
             current_step: 1,
             total_step: 0,
         },
