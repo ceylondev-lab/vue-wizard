@@ -1,5 +1,5 @@
 (function() {
-    // conponent
+    // panel component
     var panel = {
         props: ['step', 'title', 'action', 'bnext'],
         template: `<div :data-step="step" v-if="$parent.current_step==step" class="vue-panel card">	  	

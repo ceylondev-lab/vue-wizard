@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Vuejs</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <title>
+                    Vuejs
+                </title>
+                <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+                </link>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <div id="app">
+            
+            <!-- panel is a vue components -->
+            <!-- which has step, title, action, bnext properties -->
+            <!-- step is the panel step : required -->
+            <!-- title is the panel title : optional -->
+            <!-- action required a method in the main vue app. this will run befor the next event. good for run validations or any middleware this method required to return a boolen value to execute the next event. : optional -->
+            <!-- bnext is the next button text. : optional : defautl "Next" -->
 
-</head>
-<body>
+            <panel action="say" bnext="Process" step="1" title="Panel 1">
+                {{msg}}
+            </panel>
 
-	<div id="app">
-		
-		<panel step="1" title="Panel 1" action="say" bnext="Process">
-			{{msg}}
-		</panel>
-		<panel step="2" title="Panel 2">
-			Panel 2
-		</panel>
-		<panel step="3" title="Panel 3" bnext="Back To Home">
-			Panel 3
-		</panel>		
-
-	</div>	
-
-
-	<script src="./js/vue.js"></script>
-	<script src="./js/script.js"></script>
-	
-</body>
+            <panel step="2" title="Panel 2">
+                Panel 2
+            </panel>
+            
+            <panel bnext="Back To Home" step="3" title="Panel 3">
+                Panel 3
+            </panel>
+        </div>
+        <script src="./js/vue.js">
+        </script>
+        <script src="./js/script.js">
+        </script>
+    </body>
 </html>
