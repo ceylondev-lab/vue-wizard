@@ -55,11 +55,11 @@
         el: "#app",
         data: {
             msg: "Hello Vue Wizard",
-            current_step: 1,
-            total_step: 0,
+            current_step: 1, // do not remove
+            total_step: 0, // do not remove
         },
         components: {
-            Panel: panel
+            Panel: panel // do not remove
         },
         methods: {
             say: function() {
@@ -68,6 +68,7 @@
             },
 
             // step_finish will execute as the last step next function
+            // do not remove
             step_finish: function() {
                 console.log("Last step");
                 this.current_step = 1;               
