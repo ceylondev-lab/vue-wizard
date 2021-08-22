@@ -2,7 +2,7 @@
     // panel component
 
     var panel = {
-        props: ['step', 'title', 'action', 'bnext'],
+        props: ['step', 'title', 'action', 'bnext','dnext'],
         template: `<div :data-step="step" v-if="$parent.current_step==step" class="vue-panel card">	  	
 		<div class="card-body">
 			<div v-if="title">
@@ -13,7 +13,7 @@
 		    <hr>
 		    <div class="d-flex justify-content-center">
 		    	<button type="button" class="btn btn-secondary mr-1" v-if="isBack" v-on:click="back">Back</button>
-			    <button type="button" class="btn btn-primary" v-on:click="next">{{next_text}}</button>
+			     <button :disabled="dnext" type="button" class="btn btn-primary" v-on:click="next">{{next_text}}</button>
 			</div>
 		</div>		
 	  </div>`,
@@ -21,6 +21,7 @@
             return {
                 isBack: (this.step == 1) ? false : true,
                 next_text: (this.bnext) ? this.bnext : "Next",
+                dnext: (this.dnext)?this.dnext:false
             }
         },
         methods: {

@@ -20,8 +20,9 @@
             <!-- title is the panel title : optional -->
             <!-- action required a method in the main vue app. this will run befor the next event. good for run validations or any middleware this method required to return a boolen value to execute the next event. : optional -->
             <!-- bnext is the next button text. : optional : defautl "Next" -->
+            <!-- dnext will disabled next button. Require main vueapp logic to return true or false: optional : defautl "false" -->
 
-            <Panel action="say" bnext="Process" step="1" title="Panel 1">
+            <Panel action="say" :dnext="false" bnext="Process" step="1" title="Panel 1">
                 {{msg}}
             </Panel>
 
