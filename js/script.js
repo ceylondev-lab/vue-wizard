@@ -13,7 +13,10 @@
 		    <hr>
 		    <div class="d-flex justify-content-center">
 		    	<button type="button" class="btn btn-secondary mr-1" v-if="isBack" v-on:click="back">Back</button>
-			     <button :disabled="dnext" type="button" class="btn btn-primary" v-on:click="next">{{next_text}}</button>
+			    <button :disabled="dnext" type="button" class="btn btn-primary" v-on:click="next">
+                    <span v-if="processing" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    {{next_text}}
+                </button>
 			</div>
 		</div>		
 	  </div>`,
@@ -21,11 +24,13 @@
             return {
                 isBack: (this.step == 1) ? false : true,
                 next_text: (this.bnext) ? this.bnext : "Next",
-                dnext: (this.dnext)?this.dnext:false
+                dnext: (this.dnext)?this.dnext:false,
+                processing:false,
             }
         },
         methods: {
             next: async function() {
+                this.processing = true;
                 if (this.action) {
                     if (await this.$parent[this.action]()) {
                         if (this.$parent.current_step == this.$parent.total_step) {
@@ -41,6 +46,7 @@
                         this.$parent.current_step++;
                     }
                 }
+                this.processing = false;
             },
             back: function() {
                 this.$parent.current_step--
